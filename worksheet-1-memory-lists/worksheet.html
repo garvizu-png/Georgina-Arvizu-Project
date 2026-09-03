@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Better MF Markdown</title>
+    <style>
+        body {margin:auto auto; width:80ex; max-width:95%;}
+        blockquote {border-left:1ex solid #E0E0E0; margin:0; padding:0 3ex;}
+        img {display:block; margin:auto auto; max-width:100%;}
+        ol {list-style-type:decimal;}
+        ol ol {list-style-type:lower-alpha;}
+        ol ol ol {list-style-type:lower-roman;}
+        table {border-collapse:collapse;}
+        table tr, table td {border:1px solid #000000; border-collapse:collapse;}
+        table tr, table th, table td {border:1px solid #000000; border-collapse:collapse;}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/github-gist.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1>Worksheet 1: Memory, Linked Lists, Array Lists</h1>
+<p>Initial due date: 2026-09-09 23:59 PT</p>
+<h2>Review</h2>
+<ol>
+<li>
+<p>Review how Java's memory is laid out, and the difference between the stack and the heap.</p>
+<ol>
+<li>
+<p>In your own words, explain what a stack is, and what kind of data goes on the stack.</p>
+</li>
+<li>
+<p>In your own words, explain what a heap is, and what kind of data goes on the heap.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Java has two ways of testing if two objects are the same - <code>==</code> and <code>.equals()</code>. You might have been told to always use <code>.equals()</code>, but there <em>are</em> cases where <code>==</code> is useful.</p>
+<ol>
+<li>
+<p>Read some of the search results from Google on how these are different, then in your own words, explain what <code>==</code> does and why you would want to use <code>.equals()</code> most of the time.</p>
+</li>
+<li>
+<p>Could two objects be <code>==</code> but not <code>.equals()</code>? What about <code>.equals()</code> but not <code>==</code>?</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code>null</code> is a special value in Java for reference variables that do not currently refer to anything. We will sometimes use the ∅ symbol to represent <code>null</code>. In the code from the video (below), on which line(s) would a variable be set to <code>null</code>?</p>
+<pre><code class="language-java">public class MemoryModel {
+
+    static class Engine {
+        String name = &quot;Turbo&quot;;
+    }
+
+    static class Car {
+
+        int id;
+        int hp;
+        Engine myEngine;
+
+        public Car(int id) {
+            this.id = id;
+        }
+    }
+
+    public static void main(String[] args) {
+        int age;
+        age = 12;
+        age = 15;
+        String name = &quot;&quot;;
+
+        Car myCar;
+        myCar = new Car(1);
+        myCar = new Car(2);
+
+        Car my2Car = new Car(3);
+        my2Car.hp = 120;
+
+        Car my3Car = new Car(4);
+        my3Car.hp = 1000;
+
+        Engine bigEngine = new Engine();
+        my3Car.myEngine = bigEngine;
+    }
+
+}
+</code></pre>
+</li>
+<li>
+<p>The goal of this question is for you to practice translating from Java code to what is happening in memory, and vice versa.</p>
+<ol>
+<li>
+<p>Draw the stack and heap at the indicated place in the code. You can use <a href="http://pythontutor.com/java.html">Java Tutor</a> to check your answer. Make sure you select &quot;render all objects on the heap&quot; and &quot;draw pointers as arrows&quot;.</p>
+<pre><code class="language-java">public class Worksheet {
+
+    public static int twice(int n) {
+        int result = 2 * n;
+        // DRAW MEMORY AT THIS POINT
+        return result;
+    }
+
+    public static int thrice(int n) {
+        int result = 3 * n;
+        return result;
+    }
+
+    public static int sixce(int n) {
+        return twice(thrice(n));
+    }
+
+    public static void main(String [] args) {
+        int n = 7;
+        System.out.println(sixce(n));
+    }
+
+}
+</code></pre>
+</li>
+<li>
+<p>Arrays are also reference variables, and are therefore stored on the heap. In the code below, we create an array of three elements, then set the 0th element to 37 and the 1st element to 42. Using <a href="http://pythontutor.com/java.html">Java Tutor</a> to check your answer, draw the stack and heap at the indicated place in the code.</p>
+<pre><code class="language-java">public class Worksheet {
+    public static void main(String[] args) {
+        int[] array = new int[3];
+        array[0] = 37;
+        array[1] = 42;
+        // DRAW MEMORY AT THIS POINT
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>Draw memory at the indicated place in the code. Explain why that is the result.</p>
+<pre><code class="language-java">public class Worksheet {
+    public static void main(String[] args) {
+        String[] array = new String[3];
+        array[1] = &quot;hello&quot;;
+        // DRAW MEMORY AT THIS POINT
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>Consider the two (equivalent) diagrams of memory below. Change the code marked <code>FIXME</code> so that memory will be as depicted at the indicated place in the code.</p>
+<p><img src="images/rq4-1.png" alt="" /></p>
+<p><img src="images/rq4-2.png" alt="" /></p>
+<pre><code class="language-java">public class Worksheet {
+
+    static class Element {
+        private String my_name;
+
+        public Element(String name) {
+            this.my_name = name;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Element[] elements = new Element[3];
+        // FIXME
+
+        // MEMORY DRAWN AT THIS POINT
+    }
+
+}
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>The goal of this question is for you to practice more complicated memory manipulation, and to practice accessing the heap from the stack (in code).</p>
+<ol>
+<li>
+<p>Consider the following diagram of memory. Change the code marked <code>FIXME</code> so that memory will be as depicted at the indicated place in the code. The person Lena has been created for you. If you wish, you may write additional functions to help you, but those functions must have returned by the indicated place in the code.</p>
+<p><img src="images/rq5-1.png" alt="" /></p>
+<pre><code class="language-java">public class Worksheet {
+
+    static class Person {
+        String name;
+        Person friend1;
+        Person friend2;
+    }
+
+    public static void main(String[] args) {
+        Person lena = new Person();
+        lena.name = &quot;Lena&quot;;
+
+        // FIXME
+
+        // MEMORY DRAWN AT THIS POINT
+    }
+
+}
+</code></pre>
+</li>
+<li>
+<p>Starting with your answer to the previous question, by only <em>adding</em> code to the bottom of <code>main()</code> and <em>without</em> creating a new Person, change memory so that the <em>heap</em> matches the following diagram. The stack can contain whatever functions and variables you want.</p>
+<p><img src="images/rq5-2.png" alt="" /></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2>Explore</h2>
+<p>In this section, you will be finishing the <code>IntArrayList</code> class, which implements an array list for integers. The starter code for this question is in <code>IntArrayList.java</code>, which you can download to work on in your own Java IDE. In addition to answering the questions here, you should also submit your code to <a href="https://autograder.oxy.edu/">the autograder</a>, which will run the test cases for you.</p>
+<ol>
+<li>
+<p>First, we need to be able to create an IntArrayList. Find the public constructor method. What member variables will it need to set? Add those member variables at the first <code>FIXME</code>, above the method declaration.</p>
+</li>
+<li>
+<p>Fill in the missing code inside the constructor, making sure to set the member variables you just added.</p>
+</li>
+<li>
+<p>This is an easy one - we should be able to quickly check the current size of our IntArrayList. Write the <code>size()</code> method to return the current actual size.</p>
+</li>
+<li>
+<p>Now that we can create an IntArrayList and check its size, let's start putting elements in there. Fill in the <code>add()</code> method, which adds a given element to the end of an IntArrayList. You do <em>not</em> need to worry about resizing for now.</p>
+</li>
+<li>
+<p>Once we have put a few variables inside our IntArrayList, we should be able view them. Write the<code> get()</code> method, which takes an index and returns the element that is at index in the IntArrayList.</p>
+</li>
+<li>
+<p>To complete our <code>IntArrayList</code> implementation, we need to be able to resize the array. This is done via the private <code>resize()</code> method. Using the following memory diagrams as a guide, write the <code>resize()</code> method.</p>
+<ol>
+<li>
+<p>First create a new larger array.</p>
+<p><img src="images/eq6-1.png" alt="" /></p>
+</li>
+<li>
+<p>Then copy the values over.</p>
+<p><img src="images/eq6-2.png" alt="" /></p>
+</li>
+<li>
+<p>Finally, set IntArrayList.array to the new larger array.</p>
+<p><img src="images/eq6-3.png" alt="" /></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Now that we have the resize() function, update your <code>add()</code> method to make use of <code>resize()</code>.</p>
+</li>
+<li>
+<p>Finally, implement the <code>remove()</code> method, which removes the element at a given index in an <code>IntArrayList</code>. Remember to shuffle the elements back to fill the gap!</p>
+</li>
+</ol>
+<h2>Challenge</h2>
+<p>In this section, you will be finishing the <code>IntLinkedList</code> class, which implements a singly-linked list for integers. The starter code for this question is in <code>IntLinkedList.java</code>, which you can download to work on in your own Java IDE. In addition to answering the questions here, you should also submit your code to <a href="https://autograder.oxy.edu/">the autograder</a>, which will run the test cases for you.</p>
+<ol>
+<li>
+<p>The inner Node class, as well as the <code>IntLinkedList</code> constructor, has been written for you. Explain what each of <code>Node.data</code>, <code>Node.next</code>, <code>IntLinkedList.head</code>, <code>IntLinkedList.tail</code>, and <code>IntLinkedList.size</code> is for. Additionally, draw memory at the point in the code marked &quot;CQ1&quot;</p>
+</li>
+<li>
+<p>The <code>size()</code> method should return the current number of elements in our IntLinkedList. Fill out the code for <code>size()</code>.</p>
+</li>
+<li>
+<p>Consider the following memory diagrams for what happens when we call <code>add(53)</code>, then <code>add(71)</code>, then <code>add(23)</code>, and finally <code>add(89)</code>. Note that the code for <code>add()</code> should be broken down into two cases. Write the code for <code>add()</code> when you understand what the cases are and how the method should work.</p>
+<p><img src="images/cq3-1.png" alt="" /></p>
+<p><img src="images/cq3-2.png" alt="" /></p>
+<p><img src="images/cq3-3.png" alt="" /></p>
+<p><img src="images/cq3-4.png" alt="" /></p>
+</li>
+<li>
+<p>The next method, <code>get()</code> requires looping through the nodes to get to the correct index. Write the code for <code>get()</code>.</p>
+</li>
+<li>
+<p>The final method, <code>remove()</code>, can be broken down into four cases (or five cases, if the final case is when the index is out of range). What are they? Write the code for <code>add()</code> when you understand what the cases are and how the method should work.</p>
+</li>
+</ol>
+</body>
+</html>
