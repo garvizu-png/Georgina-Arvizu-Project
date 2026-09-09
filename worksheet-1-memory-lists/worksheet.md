@@ -30,7 +30,7 @@ Initial due date: 2026-09-09 23:59 PT
     public class MemoryModel {
 
         static class Engine {
-            String name = "Turbo";
+            String name = "Turbo"; 
         }
 
         static class Car {
@@ -51,13 +51,13 @@ Initial due date: 2026-09-09 23:59 PT
             String name = "";
 
             Car myCar;
-            myCar = new Car(1);
-            myCar = new Car(2);
+            myCar = new Car(1); //myEngine -> null
+            myCar = new Car(2); //myEngine -> null
 
-            Car my2Car = new Car(3);
+            Car my2Car = new Car(3); //myEngine -> null
             my2Car.hp = 120;
 
-            Car my3Car = new Car(4);
+            Car my3Car = new Car(4); //myEngine -> null
             my3Car.hp = 1000;
 
             Engine bigEngine = new Engine();
