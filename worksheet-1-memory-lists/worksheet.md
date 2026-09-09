@@ -8,15 +8,23 @@ Initial due date: 2026-09-09 23:59 PT
 
     1. In your own words, explain what a stack is, and what kind of data goes on the stack.
 
+    A stack is a data structure that operates by stacking elements on top of one another, and once the purpose of an element has been fulfilled, it goes away. The kind of data that goes on the stack includes local variables (booleans, integers, etc) and references.
+
     2. In your own words, explain what a heap is, and what kind of data goes on the heap.
+
+    A heap is a memory pool that stores data until the code explicitly deletes it or garbage collection cleans it up. The kind of data that goes in the heap includes objects, class instances, and strings. 
 
 2. Java has two ways of testing if two objects are the same - `==` and `.equals()`. You might have been told to always use `.equals()`, but there *are* cases where `==` is useful.
 
     1. Read some of the search results from Google on how these are different, then in your own words, explain what `==` does and why you would want to use `.equals()` most of the time. 
 
+    The "==" is used to test for equality; however, for primitive types (like int, boolean), it compares actual values, and for objects (like String) is doesn't look at the contents of the object. You'd want to use `.equals()` most of the time because it checks if the contents/values are equal, especially if the code is using String. 
+
     2. Could two objects be `==` but not `.equals()`? What about `.equals()` but not `==`?
 
-3. `null` is a special value in Java for reference variables that do not currently refer to anything. We will sometimes use the &empty; symbol to represent `null`. In the code from the video (below), on which line(s) would a variable be set to `null`?
+    Two objects being `==` but not `.equals()` is not possible because `==` means the two objects point to the exact same object in memory; then calling `.equals()` will always return true. Two objects being `.equals()` but not `==` is possible because if the objects contain the same content/value, `==` will return false because it looks for the memory address, which doesn't match, but `.equals()` will return true because it compares the content/value instead of memory addresses. 
+
+4. `null` is a special value in Java for reference variables that do not currently refer to anything. We will sometimes use the &empty; symbol to represent `null`. In the code from the video (below), on which line(s) would a variable be set to `null`?
 
     ```java
     public class MemoryModel {
@@ -59,7 +67,7 @@ Initial due date: 2026-09-09 23:59 PT
     }
     ```
 
-4. The goal of this question is for you to practice translating from Java code to what is happening in memory, and vice versa.
+5. The goal of this question is for you to practice translating from Java code to what is happening in memory, and vice versa.
 
     1. Draw the stack and heap at the indicated place in the code. You can use [Java Tutor](http://pythontutor.com/java.html) to check your answer. Make sure you select "render all objects on the heap" and "draw pointers as arrows".
 
@@ -142,7 +150,7 @@ Initial due date: 2026-09-09 23:59 PT
         }
         ```
 
-5. The goal of this question is for you to practice more complicated memory manipulation, and to practice accessing the heap from the stack (in code).
+6. The goal of this question is for you to practice more complicated memory manipulation, and to practice accessing the heap from the stack (in code).
 
     1. Consider the following diagram of memory. Change the code marked `FIXME` so that memory will be as depicted at the indicated place in the code. The person Lena has been created for you. If you wish, you may write additional functions to help you, but those functions must have returned by the indicated place in the code.
 
