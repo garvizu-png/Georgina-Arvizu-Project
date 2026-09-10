@@ -122,6 +122,7 @@ Initial due date: 2026-09-09 23:59 PT
         }
         ```
 
+    
     ![](images/worksheet1Q4.png)
 
     7. Consider the two (equivalent) diagrams of memory below. Change the code marked `FIXME` so that memory will be as depicted at the indicated place in the code.
