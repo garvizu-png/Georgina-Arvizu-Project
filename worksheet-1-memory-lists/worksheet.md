@@ -147,6 +147,10 @@ Initial due date: 2026-09-09 23:59 PT
                 Element[] elements = new Element[3];
                 // FIXME
 
+                array[0] = "Hydrogen"
+                array[1] = "Helium"
+                array[2] = "Lithium"
+        
                 // MEMORY DRAWN AT THIS POINT
             }
 
@@ -173,6 +177,18 @@ Initial due date: 2026-09-09 23:59 PT
                 lena.name = "Lena";
 
                 // FIXME
+                Person malia = new Person();
+                malia.name = "Malia";
+
+                Person juno = new Person();
+                juno.name = "Juno";
+
+                Person zara = new Person();
+                zara.name = "Zara";
+                zara.friend1 = juno;
+
+                lena.friend1 = malia;
+                lena.friend2 = zara;
 
                 // MEMORY DRAWN AT THIS POINT
             }
@@ -183,6 +199,45 @@ Initial due date: 2026-09-09 23:59 PT
     2. Starting with your answer to the previous question, by only _adding_ code to the bottom of `main()` and _without_ creating a new Person, change memory so that the _heap_ matches the following diagram. The stack can contain whatever functions and variables you want.
 
         ![](images/rq5-2.png)
+
+        ```java
+        public class Worksheet {
+
+            static class Person {
+                String name;
+                Person friend1;
+                Person friend2;
+            }
+
+            public static void main(String[] args) {
+                Person lena = new Person();
+                lena.name = "Lena";
+        
+                Person malia = new Person();
+                malia.name = "Malia";
+
+                Person juno = new Person();
+                juno.name = "Juno";
+
+                Person zara = new Person();
+                zara.name = "Zara";
+                zara.friend1 = juno;
+
+                lena.friend1 = malia;
+                lena.friend2 = zara;
+
+                // code that I added without creating a new person
+
+                lena.friend1 = juno;
+                lena.friend2 = null;
+                zara.friend1 = malia;
+                juno.friend1 = zara;
+
+            }
+
+        }
+        ```
+
 
 ## Explore
 
