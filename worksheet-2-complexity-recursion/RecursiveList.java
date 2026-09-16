@@ -48,7 +48,7 @@ public class RecursiveList {
     }
 
     public String loopToString() {
-        String result = ""
+        String result = "";
         Node currNode = this.head;
         while (currNode != null) {
             result += currNode.data + ", ";
@@ -61,9 +61,7 @@ public class RecursiveList {
         // FIXME for EQ3
     }
 
-    public String recurToString(Node currNode) {
-        // FIXME for EQ3
-    }
+    // FIXME add helper function for EQ3
 
     public static void main(String[] args) {
         RecursiveList list = new RecursiveList();
@@ -77,10 +75,10 @@ public class RecursiveList {
         System.out.println();
 
         // for EQ3
-        System.out.println("print:");
-        list.loopPrint();
+        System.out.println("toString:");
+        System.out.println(list.loopToString());
         System.out.println();
-        list.recurPrint();
+        System.out.println(list.recurToString());
     }
 
 }
