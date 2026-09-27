@@ -1,0 +1,38 @@
+digraph {
+
+    feat -> cheat
+    feat -> seat
+    cheat -> beat
+    cheat -> eat
+    seat -> meat
+    seat -> treat
+    null1 [label="", style=invis]
+    beat -> null1
+    beat -> bleat
+    eat -> cleat
+    null2 [label="", style=invis]
+    eat -> null2
+    meat -> heat
+    meat -> peat
+    null3 [label="", style=invis]
+    treat -> null3
+    treat -> wheat
+    peat -> neat
+    null4 [label="", style=invis]
+    peat -> null4
+
+    feat
+    cheat
+    seat
+    beat
+    eat
+    meat
+    treat
+    bleat
+    cleat
+    heat
+    neat
+    wheat
+    peat
+
+}
