@@ -6,31 +6,55 @@ Initial due date: 2026-09-19 23:59 PT
 
 1. In your own words, what is computational complexity? Why is it important to consider, and why is it not simply "how many seconds it takes to run an algorithm"?
 
+Computational complexity is the study of how an algorithm's resources grow as the input size n grows. It is important to consider because it determines if an algorithm will function on large inputs. Seconds aren't a good measure because the same algorithm can take very different amounts of time depending on the circumstances, such as hardware differences, programming language, etc.; whereas an algorithm captures the growth rate and ignores any circumstance. 
+
 2. In your own words, what is the difference between run-time complexity and memory complexity?
+
+The difference between run-time complexity and memory complexity is simple. Run-time complexity measures how the number of steps or operations grows with input size. Memory complexity measures how the amount of additional memory the algorithm requires as the input size grows. 
 
 3. Put the following big-O's in order from fastest to slowest: O(n<sup>2</sup>), O(3<sup>n</sup>), O(n!), O(2<sup>n</sup>), O(n<sup>3</sup>), O(n), O(log(n))
 
+O(log(n)), O(n), O(n<sup>2</sup>), O(n<sup>3</sup>), O(2<sup>n</sup>), O(3<sup>n</sup>), O(n!)
+
 4. Give the English "names" for each of the following big-O's: O(n<sup>2</sup>), O(n<sup>3</sup>), O(n), O(n!), O(2<sup>n</sup>), O(1)?
+
+O(n<sup>2</sup>) - quadratic, O(n<sup>3</sup>) - cubic, O(n) - linear, O(n!) - factorial, O(2<sup>n</sup>) - exponential, O(1) - constant
 
 5. In your own words, what is a recursion algorithm? Note that this is *not* (necessarily) the same thing as a recursive function (i.e. a function that calls itself).
 
+A recursion algorithm is a problem-solving strategy that breaks a complex problem into smaller versions (sub-problems) of the same problem, solves each piece, and uses the result to build the answer to the original problem. 
+
 6. In your own words, what is the base case of a recursive algorithm? What is the recursive case?
+
+The base case of a recursive algorithm is the simplest version of the problem that can be solved without making any recursive calls and provides a direct answer. The recursive case of a recurisve algorithm is when the function breaks the problem down into sub-problems and continues the recursion making progress toward the base case. 
 
 7. The textbook uses the phrase "smaller subproblems" in their definition of a recursive algorithm.
 
     1. What is this "smaller subproblem" when a recursive algorithm is used to calculate a factorial? The factorial of a number n is written as n!, and is defined as n * (n-1) * (n-2) * ... * 3 * 2 * 1. Explain why it's a "smaller" subproblem.
+    
+    The "smaller subproblem" when a recursive algorithm is used to calculate a factorial is (n-1)!. It's a "smaller" subproblem because its input is n-1; this means the input value decreases by exactly 1 each step, which is one step toward the base case. 
 
     2. How do you detect the base case when recursively calculating a factorial, and what should you do in the base case?
 
+    To detect the base case when recursively calculating a factorial you need to check whether n is 0 or 1. 
+
     3. How do you detect the recursive case when recursively calculating a factorial, and what do you do then?
+
+
 
 8. The textbook also shows a recursive algorithm/function that works on a singly-linked list. (We will only focus on the "forward" version.)
 
     1. What is the "smaller subproblem" in a recursive algorithm that operates on a singly-linked list? Explain why it's a "smaller" subproblem.
 
+
+
     2. How do you detect the base case?
 
+
+
     3. How do you detect the recursive case?
+
+
 
 ## Exploration
 
