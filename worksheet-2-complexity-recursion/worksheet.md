@@ -26,7 +26,7 @@ A recursion algorithm is a problem-solving strategy that breaks a complex proble
 
 6. In your own words, what is the base case of a recursive algorithm? What is the recursive case?
 
-The base case of a recursive algorithm is the simplest version of the problem that can be solved without making any recursive calls and provides a direct answer. The recursive case of a recurisve algorithm is when the function breaks the problem down into sub-problems and continues the recursion making progress toward the base case. 
+The base case of a recursive algorithm is the simplest version of the problem that can be solved without making any recursive calls and provides a direct answer. The recursive case of a recursive algorithm is when the function breaks the problem down into sub-problems and continues the recursion, making progress toward the base case. 
 
 7. The textbook uses the phrase "smaller subproblems" in their definition of a recursive algorithm.
 
@@ -36,25 +36,25 @@ The base case of a recursive algorithm is the simplest version of the problem th
 
     2. How do you detect the base case when recursively calculating a factorial, and what should you do in the base case?
 
-    To detect the base case when recursively calculating a factorial you need to check whether n is 0 or 1. 
+    To detect the base case when recursively calculating a factorial, check whether n is 0 or 1 using an if statement (n==0 or n<=1). In the base case, return 1 without making further recursive calls.  
 
     3. How do you detect the recursive case when recursively calculating a factorial, and what do you do then?
 
-
+    To detect the recursive case when recursively calculating a factorial, check if n is greater than the base value (n>0 or n>1), which indicates that the problem is still too large to solve directly and must be broken down further. Then, reduce the problem by computing (n-1)! and take the current n and multiply it by the smaller recursive call n*(n-1)!. This results in the function calling itself with n-1, n-2, and so on, until hitting the base case, thus the stacked multiplications resolve back up the chain. 
 
 8. The textbook also shows a recursive algorithm/function that works on a singly-linked list. (We will only focus on the "forward" version.)
 
     1. What is the "smaller subproblem" in a recursive algorithm that operates on a singly-linked list? Explain why it's a "smaller" subproblem.
 
-
+    The "smaller subproblem" in a recursive algorithm that operates on a singly-linked list is the rest of the list after removing the current node's next. It's a "smaller" sub-problem because a recursive algorithm requires each step to move closer to a base case, thus it has one fewer node than the start of the list. 
 
     2. How do you detect the base case?
 
-
+    The base case is detected when the current node is null or none, meaning an empty list or having traversed past the last element of the list. 
 
     3. How do you detect the recursive case?
 
-
+    The recursive case is detected when the current node is not null, it occurs when the base case conditions are false. To execute the recursive case, it requires processing the current node and calling the function again, which passing the smaller subproblem as the new arguement. 
 
 ## Exploration
 
