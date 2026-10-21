@@ -71,6 +71,8 @@ The base case of a recursive algorithm is the simplest version of the problem th
         }
         ```
 
+        This function has a computational complexity of O(n<sup>3</sup>) because the loop runs n*n*n=n<sup>3</sup>. Not only that, but each iteration does one constant-time operation "x++". This can only indicate that the function's computational complexity is proportional to n<sup>3</sup>. 
+
     2.
         ```java
         public int f2(int n){
@@ -82,6 +84,8 @@ The base case of a recursive algorithm is the simplest version of the problem th
             return x;
         }
         ```
+
+        This function has a computational complexity of O(n) because the loop runs n times and does constant work per iteration. Note that "continue" is the last statement in the function's program. This simply means that it skips whatever comes next in the iteration, and in this case it's nothing, and thus it doesn't change the number of iterations. 
 
     3.
         ```java
@@ -95,6 +99,8 @@ The base case of a recursive algorithm is the simplest version of the problem th
         }
         ```
 
+        This function has a computational complexity of O(1) because the "break" is the last statement in the function's program, which ends the loop during the first iteration. This means "x++" runs exactly one time despite how big n is. "QUESTION for Justin: Is the third bracket "{" before "return x;" a typo or intentionally there?"  
+
     4.
         ```java
         public int f4(int n){
@@ -107,6 +113,9 @@ The base case of a recursive algorithm is the simplest version of the problem th
             return x;
         }
         ```
+
+        This function has a computational complexity of O(n<sup>2</sup>) because the inner loop runs i times for each value of i from 0 to n-1, such that the total is 0+1+2+3...+(n-1)=n(n-1)/2 iterations. This results in (1/2)n<sup>2</sup> - (1/2)n<sup>2</sup>, and technically Big-O drops the constant factor, which leaves the function with n<sup>2</sup>. 
+
 
     5.
         ```java
@@ -122,6 +131,8 @@ The base case of a recursive algorithm is the simplest version of the problem th
         }
         ```
 
+        This function has a computational complexity of O(n) because the outer loop runs n times, but the inner loop can only run 10 times since y is a fixed constant. This means that the function runs 10n operations, and since Big-O drops the constant factor of 10, it leaves n. 
+
     6.
         ```java
         public int f6(int n){
@@ -135,6 +146,9 @@ The base case of a recursive algorithm is the simplest version of the problem th
             return x;
         }
         ```
+
+        This function has a computational complexity of 
+      
 
 2. This question guides you through how to convert code with a while loop into a recursive function. We will use a function that sums up a singly-linked list of integers as the example.
 
