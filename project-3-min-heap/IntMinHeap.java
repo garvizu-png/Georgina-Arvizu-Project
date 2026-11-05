@@ -2,7 +2,7 @@ public class IntMinHeap {
 
     private IntArrayList array;
 
-    public IntMinHeap {
+    public IntMinHeap() {
         // DO NOT CHANGE
         this.array = new IntArrayList(3);
     }
